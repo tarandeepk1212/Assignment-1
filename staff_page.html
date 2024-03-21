@@ -1,0 +1,58 @@
+/**
+* @name: Assignement1
+* @Course Code: SODV1201
+* @class: Software Development Diploma program.
+* @author: Tarandeep Kaur.
+*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="staff_page.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Staff Information</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mark_grade_converter.html">Mark to Grade Converter</a></li>
+                <li><a href="staff_page.html">Staff Page</a></li>
+                <li><a href="weather_page.html">Weather Page</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="staffList"></section>
+    </section>
+    <footer>
+        <p>&copy; 2024 tarandeep. All rights reserved.</p>
+    </footer>
+    <script>
+
+        window.addEventListener('load', function() { //js code to display staff information.
+           
+            var staffData = [
+                { name: 'Ron santos', salary: 50000 },
+                { name: 'John Doe',salary: 60000 },
+                { name: 'David Johnson', salary: 55000 }
+            ];
+
+          
+            staffData.sort(function(a, b) { //for sorting staff by name.
+                return a.name.localeCompare(b.name);
+            });
+
+           
+            var staffList = document.getElementById('staffList'); //to display staff info.
+            staffData.forEach(function(staff) {
+                var staffInfo = document.createElement('p');
+                staffInfo.textContent = staff.name + ' - Salary: $' + staff.salary.toFixed(2);
+                staffList.appendChild(staffInfo);
+            });
+        });
+    </script>
+</body>
+</html>

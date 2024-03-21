@@ -1,0 +1,67 @@
+/**
+* @name: Assignement1
+* @Course Code: SODV1201
+* @class: Software Development Diploma program.
+* @author: Tarandeep Kaur.
+*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark to Grade Converter</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="mark_grade_converter.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Mark to Grade Converter</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mark_grade_converter.html">Mark to Grade Converter</a></li>
+                <li><a href="staff_page.html">Staff Page</a></li>
+                <li><a href="weather_page.html">Weather Page</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h2>Enter Your Mark:</h2>
+        <input type="text" id="markInput" placeholder="Enter mark">
+        <button onclick="convertToGrade()">Convert</button>
+        <p id="errorMessage"></p>
+        <p id="gradeResult"></p>
+    </section>
+    <footer>
+        <p>&copy; 2024 tarandeep. All rights reserved.</p>
+    </footer>
+    <script>
+        function convertToGrade() { //Js code for marks to grade conversion.
+            var mark = document.getElementById('markInput').value;
+            var errorMessage = document.getElementById('errorMessage');
+            var gradeResult = document.getElementById('gradeResult');
+
+            errorMessage.textContent = '';
+            gradeResult.textContent = '';
+
+            if (isNaN(mark) || mark === '' || mark < 0 || mark > 100) { //for validation of marks.
+                errorMessage.textContent = 'Invalid mark. Please enter a number between 0 and 100.';
+                return;
+            }
+
+          
+            if (mark >= 90) { //for converting marks to grade.
+                gradeResult.textContent = 'Grade: A';
+            } else if (mark >= 80) {
+                gradeResult.textContent = 'Grade: B';
+            } else if (mark >= 70) {
+                gradeResult.textContent = 'Grade: C';
+            } else if (mark >= 50) {
+                gradeResult.textContent = 'Grade: D';
+            } else {
+                gradeResult.textContent = 'Grade: F';
+            }
+        }
+    </script>
+</body>
+</html>
